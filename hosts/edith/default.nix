@@ -10,9 +10,9 @@
   zfs-root = {
     boot = {
       devNodes = "/dev/disk/by-id/";
-      bootDevices = [ "bootDevices_placeholder" ];
+      bootDevices = [  "ata-Patriot_P210_2048GB_PBEADBB2211180481" "ata-Patriot_P210_2048GB_PBEADBB2211180518" "ata-Patriot_P210_2048GB_PBEADBB2211180345" "ata-Patriot_P210_2048GB_PBEADBB2211180531" ];
       immutable = false;
-      availableKernelModules = [ "kernelModules_placeholder" ];
+      availableKernelModules = [  "ahci" "ohci_pci" "ehci_pci" "pata_atiixp" "xhci_pci" "firewire_ohci" "usbhid" "usb_storage" "sd_mod" ];
       removableEfi = true;
       kernelParams = [ ];
       sshUnlock = {
@@ -25,7 +25,7 @@
       # read changeHostName.txt file.
       hostName = "edith";
       timeZone = "Europe/Berlin";
-      hostId = "abcd1234";
+      hostId = "b5fd399a";
     };
   };
 
