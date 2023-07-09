@@ -10,7 +10,7 @@
   users.users = {
     root = {
       initialHashedPassword = "$6$jhFedIJGrSRMLQfV$u.oyQzAiWpRhkcwJRWYoX3HgEzxHXrY/VuAOaCikHPCzht7.euRtSTzJ/4EdWFBXxpBNfMrT2mhI3J1tuEYpI0";
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFnJ1RYcyw/WBT7CSfvG5fRL591X90Gy1S87BGZPTUmt root@ssd" ];
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPN0rcHxQVA3/ItRzxhd5eUmIzlUPihAPEP4zkQ/n7Oi jluckenbaugh@ucsd.edu" ];
       extraGroups = [ "docker" ];
     };
     jer = {
@@ -50,7 +50,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
-      mg # emacs-like editor
       jq # other programs
       zerotierone
       ripgrep
