@@ -61,7 +61,7 @@
           }));
     in {
       nixosConfigurations = {
-        exampleHost = mkHost "exampleHost" "x86_64-linux";
+        edith = mkHost "edith" "x86_64-linux";
       };
     };
 }
