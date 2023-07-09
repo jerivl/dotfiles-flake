@@ -47,13 +47,19 @@
     sudo.enable = false;
   };
 
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       mg # emacs-like editor
       jq # other programs
+      zerotierone
     ;
   };
 
   # docker setup
   virtualisation.docker.enable = true;
+
+  # zerotier setup
+  services.zerotierone.enable = true;
+  services.zerotierone.joinNetworks = [ "db64858fed82535e" ];
 }
