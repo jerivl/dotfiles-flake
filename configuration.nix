@@ -53,6 +53,7 @@
       mg # emacs-like editor
       jq # other programs
       zerotierone
+      ripgrep
     ;
   };
 
