@@ -58,4 +58,8 @@
 
   # docker setup
   virtualisation.docker.enable = true;
+
+  # zerotier setup
+  services.zerotierone.enable = true;
+  services.zerotierone.joinNetworks = [ "db64858fed82535e" ];
 }
