@@ -44,7 +44,7 @@
 
   security = {
     doas.enable = true;
-    sudo.enable = false;
+    sudo.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
