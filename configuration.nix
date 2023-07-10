@@ -45,6 +45,8 @@
       jq # other programs
       zerotierone
       ripgrep
+      busybox
+      dig
     ;
   };
 
