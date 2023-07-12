@@ -47,6 +47,7 @@
       ripgrep
       busybox
       dig
+      docker-compose
     ;
   };
 
