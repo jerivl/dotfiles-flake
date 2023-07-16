@@ -40,8 +40,9 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  devenv = (import (fetchTarball https://install.devenv.sh/latest)).default;
-  environment.systemPackages = [
+  let
+    devenv = (import (fetchTarball https://install.devenv.sh/latest)).default;
+  in environment.systemPackages = [
     pkgs.jq # other programs
     pkgs.zerotierone
     pkgs.ripgrep
