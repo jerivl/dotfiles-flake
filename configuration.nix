@@ -40,8 +40,6 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  let
-    devenv = (import (fetchTarball https://install.devenv.sh/latest)).default;
   in environment.systemPackages = [
     pkgs.jq # other programs
     pkgs.zerotierone
@@ -51,7 +49,7 @@
     pkgs.docker-compose
     pkgs.direnv
     pkgs.cachix
-    devenv
+    (import (fetchTarball https://install.devenv.sh/latest)).default
   ];
 
   # docker setup
