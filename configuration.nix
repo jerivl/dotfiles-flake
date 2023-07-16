@@ -40,9 +40,8 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  let
-    devenv = (import (fetchTarball https://install.devenv.sh/latest)).default;
-  in environment.systemPackages = builtins.attrValues {
+  devenv = (import (fetchTarball https://install.devenv.sh/latest)).default;
+  environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
       jq # other programs
       zerotierone
@@ -52,8 +51,8 @@
       docker-compose
       direnv
       cachix
-      devenv
     ;
+    devenv
   };
 
   # docker setup
