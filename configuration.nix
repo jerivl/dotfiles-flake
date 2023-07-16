@@ -40,20 +40,18 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = [
-    pkgs.jq # other programs
-    pkgs.zerotierone
-    pkgs.ripgrep
-    pkgs.busybox
-    pkgs.dig
-    pkgs.docker-compose
-    pkgs.direnv
-    pkgs.cachix
-    (import (fetchTarball {
-      url = "https://install.devenv.sh/latest";
-      sha256 = "0wj5455mk0kgm4vnvqia6x4qhkwwf3cn07pdsd4wmfdbp9rxr44a";
-    })).default
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      jq # other programs
+      zerotierone
+      ripgrep
+      busybox
+      dig
+      docker-compose
+      direnv
+      cachix
+    ;
+  };
 
   # docker setup
   virtualisation.docker.enable = true;
