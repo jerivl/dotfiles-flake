@@ -40,7 +40,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  in environment.systemPackages = [
+  environment.systemPackages = [
     pkgs.jq # other programs
     pkgs.zerotierone
     pkgs.ripgrep
