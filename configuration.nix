@@ -51,7 +51,7 @@
     pkgs.cachix
     (import (fetchTarball {
       url = "https://install.devenv.sh/latest";
-      sha256 = "1jppksrfvbk5ypiqdz4cddxdl8z6zyzdb2srq8fcffr327ld5jj2";
+      sha256 = "0wj5455mk0kgm4vnvqia6x4qhkwwf3cn07pdsd4wmfdbp9rxr44a";
     })).default
   ];
 
