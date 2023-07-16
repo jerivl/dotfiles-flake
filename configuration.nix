@@ -48,6 +48,9 @@
       busybox
       dig
       docker-compose
+      direnv
+      cachix
+      (import (fetchTarball https://install.devenv.sh/latest)).default
     ;
   };
 
