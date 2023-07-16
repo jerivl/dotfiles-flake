@@ -52,7 +52,7 @@
       direnv
       cachix
     ;
-    devenv
+    devenv;
   };
 
   # docker setup
