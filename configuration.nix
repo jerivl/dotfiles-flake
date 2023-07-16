@@ -41,19 +41,17 @@
 
   nixpkgs.config.allowUnfree = true;
   devenv = (import (fetchTarball https://install.devenv.sh/latest)).default;
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      jq # other programs
-      zerotierone
-      ripgrep
-      busybox
-      dig
-      docker-compose
-      direnv
-      cachix
-    ;
-    devenv;
-  };
+  environment.systemPackages = [
+    pkgs.jq # other programs
+    pkgs.zerotierone
+    pkgs.ripgrep
+    pkgs.busybox
+    pkgs.dig
+    pkgs.docker-compose
+    pkgs.direnv
+    pkgs.cachix
+    devenv
+  ];
 
   # docker setup
   virtualisation.docker.enable = true;
