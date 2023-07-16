@@ -49,7 +49,10 @@
     pkgs.docker-compose
     pkgs.direnv
     pkgs.cachix
-    (import (fetchTarball https://install.devenv.sh/latest)).default
+    (import (fetchTarball {
+      url = "https://install.devenv.sh/latest";
+      sha256 = "1jppksrfvbk5ypiqdz4cddxdl8z6zyzdb2srq8fcffr327ld5jj2";
+    })).default
   ];
 
   # docker setup
