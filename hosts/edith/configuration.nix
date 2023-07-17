@@ -18,6 +18,7 @@
         exa
 	sd
 	du-dust
+	fd
       ;
     };
   };
