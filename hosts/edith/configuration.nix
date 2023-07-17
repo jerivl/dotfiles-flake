@@ -16,6 +16,8 @@
     packages = builtins.attrValues {
       inherit (pkgs)
         exa
+	sd
+	du-dust
       ;
     };
   };
