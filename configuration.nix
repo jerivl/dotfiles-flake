@@ -50,6 +50,7 @@
       docker-compose
       direnv
       cachix
+      openssl
     ;
   };
 
