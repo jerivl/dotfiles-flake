@@ -20,6 +20,7 @@
 	du-dust
 	fd
 	certbot
+	kitty
       ;
     };
   };
