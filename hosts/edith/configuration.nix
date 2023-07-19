@@ -19,6 +19,7 @@
 	sd
 	du-dust
 	fd
+	certbot
       ;
     };
   };
