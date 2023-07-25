@@ -27,6 +27,7 @@
     enable = true;
     settings = { PasswordAuthentication = false; };
   };
+  programs.mosh.enable = true;
 
   boot.zfs.forceImportRoot = false;
 
