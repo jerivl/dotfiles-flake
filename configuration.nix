@@ -51,6 +51,7 @@
       direnv
       cachix
       openssl
+      mosh
     ;
   };
 
