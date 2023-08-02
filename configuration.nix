@@ -53,6 +53,7 @@
       cachix
       openssl
       mosh
+      go
     ;
   };
 
