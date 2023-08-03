@@ -10,6 +10,7 @@ let
 	sha256 = "1yv4nssj4q265nfg15xxz1fmfn3s2hkvwicwy4jm32idhcdz6cb8";
     };
     vendorSha256 = "1yv4nssj4q265nfg15xxz1fmfn3s2hkvwicwy4jm32idhcdz6cb8";
+    name = "zerotier-systemd-manager";
   };
 in
 {
