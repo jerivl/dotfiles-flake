@@ -35,7 +35,8 @@
       Type = "oneshot";
       path = [ pkgs.nix ];
       User = "jer";
-      ExecStart = "cd /home/jer/edith; git pull; docker compose down; docker compose up";
+      WorkingDirectory= "/home/jer/edith";
+      ExecStart = "git pull; docker compose down; docker compose up";
     };
   };
 }
