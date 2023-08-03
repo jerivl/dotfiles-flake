@@ -33,7 +33,7 @@
   
   systemd.services."update-edith" = {
     script = ''
-      nix-shell -p ssh docker git
+      /run/current-system/sw/bin/nix-shell -p ssh docker git
       git config --global --add safe.directory /home/jer/edith
       cd /home/jer/edith
       git pull
