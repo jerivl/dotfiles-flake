@@ -1,6 +1,17 @@
 # configuration in this file is shared by all hosts
 
-{ pkgs, ... }: {
+{ pkgs, ... }: 
+let
+  zerotier-systemd-manager = pkgs.buildGoModule{
+    pkgs.fetchFromGithub{
+        owner = "zerotier";
+	repo = "zerotier-systemd-manager";
+	rev = "6ee6e8c873e7e476f0aeee251e933f6920bae868";
+	sha256 = "1yv4nssj4q265nfg15xxz1fmfn3s2hkvwicwy4jm32idhcdz6cb8";
+      };
+  };
+in
+{
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
   networking.useDHCP = true;
@@ -54,6 +65,7 @@
       openssl
       mosh
       go
+      zerotier-systemd-manager
     ;
   };
 
