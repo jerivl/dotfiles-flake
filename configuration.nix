@@ -68,6 +68,7 @@ in
       pkgs.openssl
       pkgs.mosh
       pkgs.go
+      pkgs.kitty
       zerotier-systemd-manager
   ];
 
