@@ -33,6 +33,7 @@
   
   systemd.services."update-edith" = {
     script = ''
+      GIT_SSH_COMMAND=/run/current-system/sw/bin/ssh
       cd /home/jer/edith
       /run/current-system/sw/bin/git config --global --add safe.directory /home/jer/edith
       /run/current-system/sw/bin/ssh-agent /bin/sh -c '/run/current-system/sw/bin/ssh-add /home/jer/.ssh/id_ed25519; /run/current-system/sw/bin/git pull'
