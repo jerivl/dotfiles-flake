@@ -7,6 +7,7 @@ let
         owner = "zerotier";
 	repo = "zerotier-systemd-manager";
 	rev = "6ee6e8c873e7e476f0aeee251e933f6920bae868";
+	sha256 = "sha256-oDDTHMwZbGBiqk1di8DJzON8OLb5pcYDdnKrAVC5g74=";
     };
     vendorSha256 = "sha256-oDDTHMwZbGBiqk1di8DJzON8OLb5pcYDdnKrAVC5g74=";
     name = "zerotier-systemd-manager";
