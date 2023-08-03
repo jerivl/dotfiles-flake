@@ -9,6 +9,7 @@ let
 	rev = "6ee6e8c873e7e476f0aeee251e933f6920bae868";
 	sha256 = "1yv4nssj4q265nfg15xxz1fmfn3s2hkvwicwy4jm32idhcdz6cb8";
     };
+    vendorSha256 = "1yv4nssj4q265nfg15xxz1fmfn3s2hkvwicwy4jm32idhcdz6cb8";
   };
 in
 {
