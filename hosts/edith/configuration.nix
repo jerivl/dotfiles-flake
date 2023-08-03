@@ -34,9 +34,9 @@
   systemd.services."update-edith" = {
     script = ''
       cd /home/jer/edith
-      git pull
-      docker compose down
-      docker compose up
+      /run/current-system/sw/bin/git pull
+      /run/current-system/sw/bin/docker compose down
+      /run/current-system/sw/bin/docker compose up
     '';
     serviceConfig = {
       Type = "oneshot";
