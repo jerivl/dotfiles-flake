@@ -35,7 +35,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = "jer";
-      ExecStart = "/bin/sh -c \"su - jer; cd /home/jer/edith; git pull; docker compose down; docker compose up\"";
+      ExecStart = "/bin/sh -c \"echo $PATH; su - jer; cd /home/jer/edith; git pull; docker compose down; docker compose up\"";
     };
   };
 }
