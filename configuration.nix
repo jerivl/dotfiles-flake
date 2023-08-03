@@ -2,7 +2,7 @@
 
 { pkgs, ... }: 
 let
-  pkgs.zerotier-systemd-manager = pkgs.buildGoModule {
+  zerotier-systemd-manager = pkgs.buildGoModule {
     src = pkgs.fetchFromGithub {
         owner = "zerotier";
 	repo = "zerotier-systemd-manager";
@@ -52,22 +52,20 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      jq # other programs
-      zerotierone
-      ripgrep
-      busybox
-      dig
-      docker-compose
-      direnv
-      cachix
-      openssl
-      mosh
-      go
+  environment.systemPackages = [
+      pkgs.jq # other programs
+      pkgs.zerotierone
+      pkgs.ripgrep
+      pkgs.busybox
+      pkgs.dig
+      pkgs.docker-compose
+      pkgs.direnv
+      pkgs.cachix
+      pkgs.openssl
+      pkgs.mosh
+      pkgs.go
       zerotier-systemd-manager
-    ;
-  };
+  ];
 
   # docker setup
   virtualisation.docker.enable = true;
