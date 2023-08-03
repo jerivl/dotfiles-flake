@@ -33,10 +33,12 @@
   
   systemd.services."update-edith" = {
     script = ''
+      git config --global --add safe.directory /home/jer/edith
+      nix-shell -p ssh docker git
       cd /home/jer/edith
-      /run/current-system/sw/bin/git pull
-      /run/current-system/sw/bin/docker compose down
-      /run/current-system/sw/bin/docker compose up
+      git pull
+      docker compose down
+      docker compose up
     '';
     serviceConfig = {
       Type = "oneshot";
