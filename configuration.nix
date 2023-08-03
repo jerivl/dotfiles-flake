@@ -2,7 +2,7 @@
 
 { pkgs, ... }: 
 let
-  zerotier-systemd-manager = pkgs.buildGoModule {
+  pkgs.zerotier-systemd-manager = pkgs.buildGoModule {
     src = pkgs.fetchFromGithub {
         owner = "zerotier";
 	repo = "zerotier-systemd-manager";
