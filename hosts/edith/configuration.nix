@@ -33,8 +33,9 @@
   systemd.services."update-edith" = {
     serviceConfig = {
       Type = "oneshot";
+      path = [ pkgs.nix ];
       User = "jer";
-      ExecStart = "/bin/sh -c \"whoami ; su - jer; cd /home/jer/edith; git pull; docker compose down; docker compose up\"";
+      ExecStart = "cd /home/jer/edith; git pull; docker compose down; docker compose up";
     };
   };
 }
