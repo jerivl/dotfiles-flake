@@ -32,17 +32,10 @@
   };
   
   systemd.services."update-edith" = {
-    script = ''
-      
-      cd /home/jer/edith
-      /run/current-system/sw/bin/git config --global --add safe.directory /home/jer/edith
-      /run/current-system/sw/bin/ssh-agent /bin/sh -c '/run/current-system/sw/bin/ssh-add /home/jer/.ssh/id_ed25519; GIT_SSH_COMMAND=/run/current-system/sw/bin/ssh; /run/current-system/sw/bin/git pull'
-      /run/current-system/sw/bin/docker compose down
-      /run/current-system/sw/bin/docker compose up
-    '';
     serviceConfig = {
       Type = "oneshot";
-      User = "root";
+      User = "jer";
+      ExecStart = "/bin/sh -c 'cd /home/jer/edith; git pull; docker compose down; docker compose up'";
     };
   };
 }
