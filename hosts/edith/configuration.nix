@@ -35,7 +35,7 @@
       Type = "oneshot";
       User = "jer";
       WorkingDirectory= "/home/jer/edith";
-      ExecStart = "git pull; docker compose down; docker compose up";
+      ExecStart = "/run/current-system/sw/bin/echo $PATH; git pull; docker compose down; docker compose up";
     };
     path = [ pkgs.git pkgs.openssh pkgs.docker ];
   };
