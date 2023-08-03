@@ -36,7 +36,7 @@
       path = [ pkgs.git pkgs.openssh pkgs.docker ];
       User = "jer";
       WorkingDirectory= "/home/jer/edith";
-      ExecStart = "/run/current-system/sw/bin/echo $PATH | grep git; git pull; docker compose down; docker compose up";
+      ExecStart = "/bin/sh -c "/run/current-system/sw/bin/echo $PATH | grep git"; git pull; docker compose down; docker compose up";
     };
   };
 }
