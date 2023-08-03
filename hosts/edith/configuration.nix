@@ -33,8 +33,7 @@
   
   systemd.services."update-edith" = {
     script = ''
-      NIX_PATH="nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos:nixos-config=/etc/nixos/configuration.nix:/nix/var/nix/profiles/per-user/root/channels"
-      /run/current-system/sw/bin/nix-shell -p ssh docker git
+      /run/current-system/sw/bin/nix-shell /nix/var/nix/profiles/per-user/root/channels/nixos -p ssh docker git
       git config --global --add safe.directory /home/jer/edith
       cd /home/jer/edith
       git pull
