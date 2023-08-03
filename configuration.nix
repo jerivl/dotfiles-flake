@@ -9,7 +9,7 @@ let
 	rev = "6ee6e8c873e7e476f0aeee251e933f6920bae868";
 	sha256 = "sha256-oDDTHMwZbGBiqk1di8DJzON8OLb5pcYDdnKrAVC5g74=";
     };
-    vendorSha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    vendorSha256 = "sha256-40e/FFzHbWo0+bZoHQWzM7D60VUEr+ipxc5Tl0X9E2A=";
     pname = "zerotier-systemd-manager";
     version = "0.4.0";
   };
