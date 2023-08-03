@@ -5,7 +5,6 @@
     newSession = true;
     terminal = "tmux-direct";
   };
-  services.emacs.enable = false;
   users.users.jer = {
     isNormalUser = true;
     home = "/home/jer";
@@ -22,6 +21,26 @@
 	certbot
 	kitty
       ;
+    };
+  };
+  systemd.timers."update-edith" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "*-*-* 03:00:00";
+      Unit = "update-edith.service";
+    };
+  };
+  
+  systemd.services."update-edith" = {
+    script = ''
+      cd /home/jer/edith
+      git pull
+      docker compose down
+      docker compose up
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
     };
   };
 }
