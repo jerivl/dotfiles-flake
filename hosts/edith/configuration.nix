@@ -33,7 +33,7 @@
   systemd.services."update-edith" = {
     serviceConfig = {
       Type = "oneshot";
-      path = [ pkgs.nix ];
+      path = [ pkgs.git pkgs.ssh pkgs.docker ];
       User = "jer";
       WorkingDirectory= "/home/jer/edith";
       ExecStart = "git pull; docker compose down; docker compose up";
