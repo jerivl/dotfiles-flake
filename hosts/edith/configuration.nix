@@ -41,6 +41,6 @@
       WorkingDirectory= "/home/jer/edith";
     };
     path = [ pkgs.git pkgs.openssh pkgs.docker ];
-    script = "git pull; docker compose down; docker compose up -d";
+    script = "git pull; docker stop $(docker ps -a -q); docker compose up -d";
   };
 }
