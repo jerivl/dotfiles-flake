@@ -37,10 +37,11 @@
   systemd.services."update-start-edith" = {
     serviceConfig = {
       Type = "oneshot";
-      User = "root";
+      User = "jer";
       WorkingDirectory= "/home/jer/edith";
     };
     path = [ pkgs.git pkgs.openssh pkgs.docker ];
-    script = "git pull; docker stop $(docker ps -a -q); docker compose up --remove-orphans -d";
+    # TODO: Unsure why the papermerge container isn't started with docker compose
+    script = "git pull; docker stop $(docker ps -a -q); docker compose up -d; sleep 60; docker start papermerge reverse-proxy ";
   };
 }
