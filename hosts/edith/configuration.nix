@@ -25,15 +25,16 @@
       ;
     };
   };
-  systemd.timers."update-edith" = {
+  systemd.timers."update-start-edith" = {
     wantedBy = [ "timers.target" ];
     timerConfig = {
+      OnBootSec = "1m";
       OnCalendar = "*-*-* 03:00:00";
       Unit = "update-edith.service";
     };
   };
   
-  systemd.services."update-edith" = {
+  systemd.services."update-start-edith" = {
     serviceConfig = {
       Type = "oneshot";
       User = "jer";
