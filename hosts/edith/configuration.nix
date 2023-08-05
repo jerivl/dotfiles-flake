@@ -19,6 +19,9 @@
 	du-dust
 	fd
 	certbot
+	lazygit
+	lazydocker
+	ctop
       ;
     };
   };
