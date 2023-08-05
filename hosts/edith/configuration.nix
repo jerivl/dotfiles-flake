@@ -41,7 +41,6 @@
       WorkingDirectory= "/home/jer/edith";
     };
     path = [ pkgs.git pkgs.openssh pkgs.docker ];
-    # TODO: Unsure why the papermerge container isn't started with docker compose
-    script = "git pull; docker stop $(docker ps -a -q); docker compose up -d; sleep 180; docker start papermerge reverse-proxy";
+    script = "git pull; docker stop $(docker ps -a -q); docker compose up -d";
   };
 }
