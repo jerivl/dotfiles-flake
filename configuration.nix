@@ -22,7 +22,7 @@ in
     enable = true;
     fallbackDns = ["192.168.196.130" "10.0.0.1"];
   };
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
 
   
   users.users = {
@@ -32,7 +32,6 @@ in
       extraGroups = [ "docker" ];
     };
   };
-
 
 
   programs.neovim = {
