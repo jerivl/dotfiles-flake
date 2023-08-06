@@ -22,7 +22,7 @@ in
     enable = true;
     fallbackDns = ["192.168.196.130" "10.0.0.1"];
   };
-  networking.networkmanager.enable = false;
+  networking.networkmanager.enable = true;
 
   
   users.users = {
