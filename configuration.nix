@@ -1,4 +1,4 @@
-# configuration in this file is shared by all hosts
+e configuration in this file is shared by all hosts
 
 { pkgs, ... }: 
 let
@@ -18,6 +18,7 @@ in
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
   networking.useDHCP = true;
+  networking.nameservers = ["192.168.196.130" "10.0.0.1"];
   services.resolved = {
     enable = true;
     fallbackDns = ["192.168.196.130" "10.0.0.1"];
