@@ -1,4 +1,4 @@
-e configuration in this file is shared by all hosts
+#the configuration in this file is shared by all hosts
 
 { pkgs, ... }: 
 let
