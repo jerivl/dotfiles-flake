@@ -18,9 +18,11 @@ in
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
   networking.useDHCP = true;
-  services.resolved.enable = true;
+  services.resolved = {
+    enable = true;
+    fallbackDns = ["192.168.196.130" "10.0.0.1"];
+  };
   networking.networkmanager.enable = false;
-  networking.nameservers = [ "127.0.0.1" "192.168.196.130" "10.0.0.1" ];
 
   
   users.users = {
