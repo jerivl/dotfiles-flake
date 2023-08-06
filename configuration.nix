@@ -21,7 +21,11 @@ in
   networking.nameservers = ["192.168.196.130" "10.0.0.1"];
   services.resolved = {
     enable = true;
+    domains = [ "~." ];
     fallbackDns = ["192.168.196.130" "10.0.0.1"];
+    extraConfig = ''
+      DNSOverTLS=yes
+    '';
   };
   networking.networkmanager.enable = false;
 
