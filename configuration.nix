@@ -19,6 +19,10 @@ in
   # You can configure networking with "nmtui" command.
   networking.useDHCP = true;
   networking.nameservers = ["192.168.196.130" "10.0.0.1" ];
+  networking.resolvconf = {
+    enable = true;
+    useLocalResolver = true;
+  };
   networking.networkmanager.enable = false;
 
   
