@@ -22,6 +22,10 @@ in
   networking.resolvconf = {
     enable = true;
     useLocalResolver = true;
+    extraOptions = [
+    "nameserver 192.168.196.130"
+    "nameserver 10.0.0.1"
+    ];
   };
   networking.networkmanager.enable = false;
 
