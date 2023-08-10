@@ -18,8 +18,9 @@ in
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
   services.resolved.enable = true;
+  services.resolved.fallbackDns = [ "192.168.196.130" "10.0.0.1" ];
   networking.useDHCP = true;
-  networking.nameservers = [ "192.168.196.130" "10.0.0.1" ];
+  #networking.nameservers = 
   networking.networkmanager.enable = false;
 
   
