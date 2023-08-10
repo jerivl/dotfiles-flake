@@ -21,7 +21,6 @@ in
   services.resolved.enable = true;
   networking.useDHCP = true;
   networking.nameservers = [ "192.168.196.130" "10.0.0.1" ];
-  networking.useHostResolvConf = true;
   networking.networkmanager.enable = false;
 
   
