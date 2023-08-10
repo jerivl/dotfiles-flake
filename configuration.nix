@@ -19,10 +19,11 @@ in
   # You can configure networking with "nmtui" command.
   services.resolved.enable = true;
   services.resolved.fallbackDns = [ "192.168.196.130" "10.0.0.1" ];
+  services.resolved.domains = [ "~." ];
   networking.useDHCP = true;
   #networking.nameservers = 
   networking.networkmanager.enable = false;
-
+  networking.resolvconf.useLocalResolver = true;
   
   users.users = {
     root = {
