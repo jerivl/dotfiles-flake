@@ -17,8 +17,9 @@ in
 {
   # Enable NetworkManager for wireless networking,
   # You can configure networking with "nmtui" command.
+  system.nssHosts = ["files" "mymachines" "dns" "myhostname"];
   networking.useDHCP = true;
-  networking.nameservers = ["192.168.196.130" "10.0.0.1" ];
+  networking.nameservers = [ "10.0.0.1" "192.168.196.130" ];
   networking.useHostResolvConf = true;
   networking.networkmanager.enable = false;
 
