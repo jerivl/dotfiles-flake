@@ -65,6 +65,7 @@
     in {
       nixosConfigurations = {
         edith = mkHost "edith" "x86_64-linux";
+        eleanor = mkHost "eleanor" "x86_64-linux";
       };
     };
 }
