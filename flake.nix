@@ -58,7 +58,7 @@
         # configuration input
           (import ./hosts/${hostName} {
             system = system;
-            pkgs = import nixpkg-unstable {
+            pkgs = import nixpkgs-unstable {
               config = { allowUnfree = true; };
               inherit system;
             };
