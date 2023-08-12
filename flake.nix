@@ -1,7 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -58,7 +58,7 @@
         # configuration input
           (import ./hosts/${hostName} {
             system = system;
-            pkgs = import nixpkgs-unstable {
+            pkgs = import nixpkgs {
               config = { allowUnfree = true; };
               inherit system;
             };
