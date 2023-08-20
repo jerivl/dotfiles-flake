@@ -11,7 +11,7 @@
     description = "Jeri V. Luckenbaugh";
     extraGroups = [ "wheel" "docker" ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGWKM8yGHV5cBlQ5SSyFjCZBgzc/ebtKfmyHQ7mWvxXZ jluckenbaugh@ucsd.edu" "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmYjfbjlSZkpImpnfN0eftss2bptDoZ6TCmMLghAbhS+8HIJeYEXH0nYSZ2PO0WR+t7gQajNqR2i0FnGy1sEgIog6cB/ddJFybWU2oPmYT7iK3G46q0/BHhZL7Z9LVIIVjInbmZh64okLmvooccf+lbHUdgdobdNTRyh4e+rzxKxwnonQXYwjc5uNlpp7YD/4dkI8/7q0gW7X6in2HqeqUxfY6BvOygAT8qNOKNvhBN58RZYW1YRMlUy89xD2h819CqPg5qvTGNrVM51eLWN+CWCCzb3v9mpXOn+MR7n92WbR7D+3sm5d+2iK7MGfb6wpJAV4l/SofbIF9XCC8WcC3KyrWkqwlYq8fC3v3cbT7NTQ+msknCgzmrMpEtkyQMn4Sj/yuUB7zKuGHTb1C0rFPQ9HSc8/E4cKjaXEYNRiTIiz4YARV+2jbCLjC044gLZPApmZX3wwJyYwwu1jVyQR//T2TKGfCPf7iLoDChXLJaP2I8hYB6n+WKMftHPY3ZeM="];
-    initialHashedPassword = "$6$b9oWhqTmy5w/DNyQ$NjzLIEB9n/i0aGzo5nKlP0kgxUORUgkY4bxdfsfAevFtBsMNhKJI3HIMmitq9tQfdrGTVdRa7PrP7CCSoUjh6/";
+    conftialHashedPassword = "$6$b9oWhqTmy5w/DNyQ$NjzLIEB9n/i0aGzo5nKlP0kgxUORUgkY4bxdfsfAevFtBsMNhKJI3HIMmitq9tQfdrGTVdRa7PrP7CCSoUjh6/";
     packages = builtins.attrValues {
       inherit (pkgs)
         exa
@@ -38,7 +38,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = "jer";
-      WorkingDirectory= "/home/edith";
+      WorkingDirectory= "/home/jer/edith";
     };
     path = [ pkgs.git pkgs.openssh pkgs.docker ];
     script = "git pull; docker stop $(docker ps -a -q); docker compose up -d";
@@ -49,7 +49,7 @@
     defaults.email = "edith@jerivl.com";
     certs."jerivl.com" = {
       dnsProvider = "cloudflare";
-      credentialsFile = "/etc/secrets/cloudflare.ini";
+      credentialsFile = "/var/lib/private/cloudflare.conf";
     };
   };
 
@@ -68,7 +68,7 @@
     accounts = {
       default = {
         host = "in-v3.mailjet.com";
-        passwordeval = "cat /etc/secrets/mailjetcreds.txt";
+        passwordeval = "cat /var/lib/private/mailjet.conf";
         user = "1edd038c075938686b231810a8337d03";
         from = "edith@jerivl.com";
       };
@@ -88,7 +88,14 @@
     ZED_USE_ENCLOSURE_LEDS = true;
     ZED_SCRUB_AFTER_RESILVER = true;
   };
-  # this option does not work; will return error
+  # this option does not work without recompiling the zfs module (slow); will return error
   services.zfs.zed.enableMail = false;
+
+  # Root email alias
+  system.userActivationScripts = {
+    rootEmailAlias = {
+      text = ''echo "root: edith@jerivl.com" > /etc/aliases'';
+    };
+  };
 
 }
