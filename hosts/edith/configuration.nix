@@ -60,9 +60,9 @@
       aliases = "/etc/aliases";
       port = 587;
       tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
-      tls = "off";
+      tls = "on";
       auth = "login";
-      tls_starttls = "off";
+      tls_starttls = "on";
     };
 
     accounts = {
