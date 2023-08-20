@@ -65,6 +65,16 @@
       tls_starttls = "on";
     };
 
+  # Root email alias
+  environment.etc = {
+    "aliases" = {
+      text = ''
+        root: admin@jerivl.com
+      '';
+      mode = "0644";
+    };
+  };
+
     accounts = {
       default = {
         host = "in-v3.mailjet.com";
@@ -90,12 +100,5 @@
   };
   # this option does not work without recompiling the zfs module (slow); will return error
   services.zfs.zed.enableMail = false;
-
-  # Root email alias
-#  system.userActivationScripts = {
-#    rootEmailAlias = {
-#      text = ''echo "root: edith@jerivl.com" | tee /etc/aliases'';
-#    };
-#  };
 
 }
