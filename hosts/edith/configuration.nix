@@ -94,7 +94,7 @@
   # Root email alias
   system.userActivationScripts = {
     rootEmailAlias = {
-      text = ''echo "root: edith@jerivl.com" > /etc/aliases'';
+      text = ''echo "root: edith@jerivl.com" | tee /etc/aliases'';
     };
   };
 
