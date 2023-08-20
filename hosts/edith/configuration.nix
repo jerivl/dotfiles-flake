@@ -64,6 +64,7 @@
       auth = "login";
       tls_starttls = "on";
     };
+  };
 
   # Root email alias
   environment.etc = {
