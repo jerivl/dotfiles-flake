@@ -53,6 +53,16 @@
     };
   };
 
+  # Root email alias
+  environment.etc = {
+    "aliases" = {
+      text = ''
+        root: admin@jerivl.com
+      '';
+      mode = "0644";
+    };
+  };
+
   programs.msmtp = {
     enable = true;
     setSendmail = true;
@@ -65,15 +75,6 @@
       tls_starttls = "on";
     };
 
-  # Root email alias
-  environment.etc = {
-    "aliases" = {
-      text = ''
-        root: admin@jerivl.com
-      '';
-      mode = "0644";
-    };
-  };
 
     accounts = {
       default = {
