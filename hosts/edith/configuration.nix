@@ -58,9 +58,9 @@
     setSendmail = true;
     defaults = {
       aliases = "/etc/aliases";
-      port = 465;
+      port = 587;
       tls_trust_file = "/var/lib/acme/jerivl.com/cert.pem";
-      tls = "on";
+      tls = "off";
       auth = "login";
       tls_starttls = "off";
     };
