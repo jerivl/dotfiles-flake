@@ -92,10 +92,10 @@
   services.zfs.zed.enableMail = false;
 
   # Root email alias
-  system.userActivationScripts = {
-    rootEmailAlias = {
-      text = ''echo "root: edith@jerivl.com" | tee /etc/aliases'';
-    };
-  };
+#  system.userActivationScripts = {
+#    rootEmailAlias = {
+#      text = ''echo "root: edith@jerivl.com" | tee /etc/aliases'';
+#    };
+#  };
 
 }
