@@ -62,7 +62,7 @@
       tls_trust_file = "/var/lib/acme/jerivl.com/cert.pem";
       tls = "on";
       auth = "login";
-      tls_starttls = "no";
+      tls_starttls = "off";
     };
 
     accounts = {
