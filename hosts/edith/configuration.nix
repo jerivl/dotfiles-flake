@@ -59,7 +59,7 @@
     defaults = {
       aliases = "/etc/aliases";
       port = 465;
-      tls_trust_file = "/var/lib/acme/jerivl.com/certificates/jerivl.com.crt";
+      tls_trust_file = "/var/lib/acme/jerivl.com/cert.pem";
       tls = "on";
       auth = "login";
       tls_starttls = "off";
