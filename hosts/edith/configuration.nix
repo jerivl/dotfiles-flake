@@ -44,15 +44,6 @@
     script = "git pull; docker stop $(docker ps -a -q); docker compose up -d";
   };
 
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "edith@jerivl.com";
-    certs."jerivl.com" = {
-      dnsProvider = "cloudflare";
-      credentialsFile = "/var/lib/private/cloudflare.conf";
-    };
-  };
-
   # Root email alias
   environment.etc = {
     "aliases" = {

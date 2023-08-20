@@ -44,6 +44,8 @@ in
   programs.mosh.enable = true;
 
   boot.zfs.forceImportRoot = false;
+  services.zfs.autoScrub.enable = true;
+  services.zfs.trim.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
