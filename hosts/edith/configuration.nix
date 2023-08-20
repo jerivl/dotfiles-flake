@@ -58,11 +58,11 @@
     setSendmail = true;
     defaults = {
       aliases = "/etc/aliases";
-      port = 465;
+      port = 587;
       tls_trust_file = "/var/lib/acme/jerivl.com/cert.pem";
       tls = "on";
       auth = "login";
-      tls_starttls = "off";
+      tls_starttls = "on";
     };
 
     accounts = {
