@@ -95,7 +95,6 @@
   system.userActivationScripts = {
     rootEmailAlias = {
       text = ''echo "root: edith@jerivl.com" > /etc/aliases'';
-      deps = [];
     };
   };
 
