@@ -25,7 +25,7 @@
       ;
     };
   };
-  systemd.timers."update-start-edith" = {
+  systemd.timers."update-edith" = {
     wantedBy = [ "timers.target" ];
     timerConfig = {
       OnBootSec = "1m";
@@ -34,13 +34,61 @@
     };
   };
   
-  systemd.services."update-start-edith" = {
+  systemd.services."update-edith" = {
     serviceConfig = {
       Type = "oneshot";
       User = "jer";
-      WorkingDirectory= "/home/jer/edith";
+      WorkingDirectory= "/home/edith";
     };
     path = [ pkgs.git pkgs.openssh pkgs.docker ];
     script = "git pull; docker stop $(docker ps -a -q); docker compose up -d";
   };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "edith@jerivl.com";
+    certs."jerivl.com" = {
+      dnsProvider = "cloudflare";
+      credentialsFile = "/etc/secrets/cloudflare.ini";
+    };
+  };
+
+  programs.msmtp = {
+    enable = true;
+    setSendmail = true;
+    defaults = {
+      aliases = "/etc/aliases";
+      port = 465;
+      tls_trust_file = "/var/lib/acme/jerivl.com/certificates/jerivl.com.crt";
+      tls = "on";
+      auth = "login";
+      tls_starttls = "off";
+    };
+
+    accounts = {
+      default = {
+        host = "in-v3.mailjet.com";
+        passwordeval = "cat /etc/secrets/mailjetcreds.txt";
+        user = "1edd038c075938686b231810a8337d03";
+        from = "edith@jerivl.com";
+      };
+    };
+  };
+  
+  # Enable zfs email events 
+  services.zfs.zed.settings = {
+    ZED_DEBUG_LOG = "/tmp/zed.debug.log";
+    ZED_EMAIL_ADDR = [ "root" ];
+    ZED_EMAIL_PROG = "${pkgs.msmtp}/bin/msmtp";
+    ZED_EMAIL_OPTS = "@ADDRESS@";
+
+    ZED_NOTIFY_INTERVAL_SECS = 3600;
+    ZED_NOTIFY_VERBOSE = true;
+
+    ZED_USE_ENCLOSURE_LEDS = true;
+    ZED_SCRUB_AFTER_RESILVER = true;
+  };
+  # this option does not work; will return error
+  services.zfs.zed.enableMail = false;
+
 }
