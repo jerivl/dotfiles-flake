@@ -46,6 +46,10 @@ in
   boot.zfs.forceImportRoot = false;
   services.zfs.autoScrub.enable = true;
   services.zfs.trim.enable = true;
+  # ZFS snapshoting
+  services.sanoid.enable = true;
+  services.sanoid.interval = "daily";
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
