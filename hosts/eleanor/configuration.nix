@@ -37,7 +37,7 @@
   services.zfs.zed.enableMail = false;
 
   # Eleanor serves backups via sftp
-  systemd.tmpfiles.rules = [ "d /persist 0755 root root" "f /persist/README.md 0755 root root \"Files in persist dir will be persisted across reboots. All other files may be termporary\"" ]
+  systemd.tmpfiles.rules = [ "d /persist 0755 root root" "f /persist/README.md 0755 root root \"Files in persist dir will be persisted across reboots. All other files may be termporary\"" ];
   services.restic.server.enable = true;
   services.restic.server.dataDir = "/persist";
 }
