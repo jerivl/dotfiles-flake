@@ -36,4 +36,7 @@
   # this option does not work without recompiling the zfs module (slow); will return error
   services.zfs.zed.enableMail = false;
 
+  # Eleanor serves backups via sftp
+  services.restic.server.enable = true;
+  services.restic.server.dataDir = "/persist";
 }
