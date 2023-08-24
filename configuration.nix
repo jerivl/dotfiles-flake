@@ -45,6 +45,7 @@ in
           lazygit
           lazydocker
           ctop
+	  restic
         ;
       };
     };
