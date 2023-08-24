@@ -35,5 +35,4 @@
   };
   # this option does not work without recompiling the zfs module (slow); will return error
   services.zfs.zed.enableMail = false;
-
 }
